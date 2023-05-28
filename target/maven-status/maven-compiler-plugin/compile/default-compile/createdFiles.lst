@@ -1,0 +1,5 @@
+traking\dao\TrakingDAO.class
+traking\model\TrakingModel.class
+traking\tools\Conexion.class
+traking\controller\TrakingController.class
+traking\model\Coordenadas.class
