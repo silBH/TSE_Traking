@@ -43,12 +43,23 @@
 			<artifactId>jaxrs-ri</artifactId>
 			<version>3.1.2</version>
 		</dependency>
-		
 		<dependency>
-		    <groupId>javax.json.bind</groupId>
-		    <artifactId>javax.json.bind-api</artifactId>
-		    <version>1.0</version>
+			<groupId>javax.json.bind</groupId>
+			<artifactId>javax.json.bind-api</artifactId>
+			<version>1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+		<!-- Dependencia de Jackson para formatos json-->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.15.1</version>
+		</dependency>
+
 
 	</dependencies>
 
