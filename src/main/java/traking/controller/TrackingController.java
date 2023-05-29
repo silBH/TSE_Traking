@@ -29,7 +29,7 @@ public class TrackingController {
         EnvioPrograma envioPrograma = new EnvioPrograma();
         try {
             envioPrograma.startSendingData();
-            return Response.ok("Envío de datos iniciado.").build();
+            return Response.ok("Envio de datos iniciado.").build();
         } catch (SchedulerException e) {
             e.printStackTrace();
             return Response.serverError().build();
@@ -42,7 +42,7 @@ public class TrackingController {
         EnvioPrograma envioPrograma = new EnvioPrograma();
         try {
             envioPrograma.stopSendingData();
-            return Response.ok("Envío de datos detenido.").build();
+            return Response.ok("Envio de datos detenido.").build();
         } catch (SchedulerException e) {
             e.printStackTrace();
             return Response.serverError().build();

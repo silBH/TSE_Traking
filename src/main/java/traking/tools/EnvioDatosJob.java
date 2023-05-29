@@ -25,7 +25,7 @@ public class EnvioDatosJob implements Job {
             // Crea una solicitud HTTP para enviar los datos al proyecto Jakarta EE
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8080/cargauy-web/TrackingServlet"))
+                    .uri(URI.create("http://localhost:8080/cargauy-web/TrackingServlet?action=/track"))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.ofString(""))
                     .build();
@@ -33,7 +33,6 @@ public class EnvioDatosJob implements Job {
             // Envía la solicitud y obtinene respuesta
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
-            // Verifica el código de respuesta
             int statusCode = response.statusCode();
             if (statusCode == 200) {
                 System.out.println("Los datos se enviaron correctamente al proyecto carga.uy");
