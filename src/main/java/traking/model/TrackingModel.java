@@ -29,6 +29,16 @@ public class TrackingModel {
 		super();
 	}
 
+	
+	public TrackingModel(Long id, String matricula, String pais, Coordenadas coordenadas, Date timestamp) {
+		super();
+		this.id = id;
+		this.matricula = matricula;
+		this.pais = pais;
+		this.coordenadas = coordenadas;
+		this.timestamp = timestamp;
+	}
+
 	public TrackingModel(String matrícula, String pais, Coordenadas coordenadas, Date timestamp) {
 		super();
 		this.matricula = matrícula;

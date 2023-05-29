@@ -41,6 +41,7 @@ public class TrackingDAO {
 
 	            // Recorrer los resultados y crear instancias de TrackingModel
 	            while (resultSet.next()) {
+	            	Long id = resultSet.getLong("id");
 	            	String matricula = resultSet.getString("matricula");
 	                String pais = resultSet.getString("pais");
 	                
@@ -53,7 +54,7 @@ public class TrackingDAO {
 	                SimpleDateFormat inputFormat  =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	                Date date = inputFormat.parse(timestamp);                
 
-	                TrackingModel traking = new TrackingModel(matricula, pais, coordenadas, date);
+	                TrackingModel traking = new TrackingModel(id, matricula, pais, coordenadas, date);
 	                listado.add(traking);
 	            }
 	        } catch (SQLException e) {
