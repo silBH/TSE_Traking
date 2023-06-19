@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Conexion {
     
-	private static final String URL = "jdbc:postgresql://node3316-cargauy-tse.web.elasticloud.uy//Traking";
+	private static final String URL = "jdbc:postgresql://node3316-cargauy-tse.web.elasticloud.uy/Traking";
     private static final String USERNAME = "webadmin";
     private static final String PASSWORD = "zYXcxpnQ3t";
 
