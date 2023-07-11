@@ -39,9 +39,9 @@ public class TrackingModel {
 		this.timestamp = timestamp;
 	}
 
-	public TrackingModel(String matrícula, String pais, Coordenadas coordenadas, Date timestamp) {
+	public TrackingModel(String matricula, String pais, Coordenadas coordenadas, Date timestamp) {
 		super();
-		this.matricula = matrícula;
+		this.matricula = matricula;
 		this.pais = pais;
 		this.coordenadas = coordenadas;
 		this.timestamp = timestamp;
@@ -55,12 +55,12 @@ public class TrackingModel {
 		this.id = id;
 	}
 
-	public String getMatrícula() {
+	public String getMatricula() {
 		return matricula;
 	}
 
-	public void setMatrícula(String matrícula) {
-		this.matricula = matrícula;
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
 	public String getPais() {

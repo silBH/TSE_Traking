@@ -15,30 +15,37 @@ import java.util.List;
 
 import traking.controller.TrackingController;
 import traking.model.TrackingModel;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 
 public class EnvioDatosJob implements Job {
+	
+	public static final ObjectMapper JSON_MAPPER = new ObjectMapper();	
+	
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
+    	
+    	List<TrackingModel> datos = null;
+    	
         try {
             //Se obtienen datos del controller del servicio REST
             TrackingController trackingController = new TrackingController();
             try {
-				List<TrackingModel> datos = trackingController.getTrakings();
+				datos = trackingController.getTrakings();
 			} catch (ParseException e) {
 				e.printStackTrace();
-			}
+			}      
+        	
+            String json = JSON_MAPPER.writeValueAsString(datos);           
 
-            // Crea una solicitud HTTP para enviar los datos al proyecto Jakarta EE
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("http://localhost:8080/cargauy-web/TrackingServlet?action=/track"))
                     .header("Content-Type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString(""))
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
                     .build();
 
-            // Envía la solicitud y obtinene respuesta
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
             int statusCode = response.statusCode();
@@ -51,5 +58,4 @@ public class EnvioDatosJob implements Job {
             e.printStackTrace();
         }
     }
-
 }

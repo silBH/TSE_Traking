@@ -57,5 +57,8 @@ public class TrackingController {
         return "¡Este es un mensaje de prueba!";
     }
 	
-	
+	public TrackingModel generar() throws ParseException{
+		TrackingModel trak = (new TrackingDAO().generar());
+		return trak;
+	}
 }
