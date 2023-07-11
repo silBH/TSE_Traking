@@ -1,5 +1,6 @@
 package traking.controller;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.quartz.SchedulerException;
@@ -18,14 +19,14 @@ public class TrackingController {
 	@GET
 	@Path("/track")	
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<TrackingModel> getTrakings(){
+	public List<TrackingModel> getTrakings() throws ParseException{
 		List<TrackingModel> trak = (new TrackingDAO().read());
 		return trak;
 	}
 	
 	@GET
     @Path("/start")
-    public Response startSendingData() {
+    public Response startSendingData() throws ParseException {
         EnvioPrograma envioPrograma = new EnvioPrograma();
         try {
             envioPrograma.startSendingData();
